@@ -1,0 +1,106 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editez votre profil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="profileForm" (ngSubmit) = "onSubmitForm()">
+    <ion-list>
+      <ion-item-divider color="pink">Informations Profil</ion-item-divider>
+      <ion-item>
+        <ion-label color="pink" stacked>Prénom</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.firstName">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('firstName').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Nom de famille</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.lastName">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('lastName').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>adresse mail</ion-label>
+        <ion-input type="e-mail" formControlName="emailAddress"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.emailAddress">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('emailAddress').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Date de naissance</ion-label>
+        <ion-input type="text" formControlName="birthday"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.birthday">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('birthday').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Rue </ion-label>
+        <ion-input type="text"  formControlName="streetAddress"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of  validation_messages.streetAddress">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('streetAddress').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Code postal </ion-label>
+        <ion-input type="text"  formControlName="postalCode"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.postalCode">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('postalCode').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Ville </ion-label>
+        <ion-input type="text"  formControlName="city"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.city">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('city').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="pink" stacked>Région</ion-label>
+        <ion-input type="text" formControlName="region"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.region">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="profileForm.get('region').hasError(validation.type)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+    <button ion-button block outline color="pink" type="submit"  [disabled]="!profileForm.valid">Editer le profil</button>
+  </form>
+
+</ion-content>

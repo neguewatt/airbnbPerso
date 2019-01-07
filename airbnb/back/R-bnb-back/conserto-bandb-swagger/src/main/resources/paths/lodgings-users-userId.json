@@ -1,0 +1,95 @@
+{
+  "get": {
+    "tags": [
+      "lodging",
+      "user"
+    ],
+    "summary": "Get lodgings owned by a user",
+    "operationId": "getAllLodgingsByUserId",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "userId",
+        "description": "The ID of the owner of the lodgings",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+      },
+      {
+        "in": "body",
+        "name": "pageable",
+        "description": "Pageable data",
+        "required": false,
+        "schema": {
+          "$ref": "../definitions/PageableDTO.json"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "../definitions/PageDTO.json"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "$ref": "../definitions/LodgingDTO.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "post": {
+    "tags": [
+      "lodging",
+      "user"
+    ],
+    "summary": "Create a lodging",
+    "operationId": "createLodging",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "userId",
+        "description": "The ID of the owner of the lodging",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+      },
+      {
+        "in": "body",
+        "name": "lodging",
+        "description": "The lodging to create",
+        "required": true,
+        "schema": {
+          "$ref": "../definitions/LodgingParameterDTO.json"
+        }
+      }
+    ],
+    "responses": {
+      "201": {
+        "description": "Created",
+        "schema": {
+          "$ref": "../definitions/LodgingDTO.json"
+        }
+      }
+    }
+  }
+}

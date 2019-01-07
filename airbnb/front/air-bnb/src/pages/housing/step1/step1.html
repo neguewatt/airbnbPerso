@@ -1,0 +1,77 @@
+<!--
+  Generated template for the Step1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>Etape 1</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="grid-basic-page">
+	<ion-item-divider color="pink">Devenez hôte pour Conserto</ion-item-divider><br>
+	<ion-item> 
+		<ion-label color="pink">Nous allons vous aider <br> à publier  votre annonce. </ion-label> 
+	</ion-item><br>
+	<form [formGroup]="step1Form">
+		<ion-list>
+			<ion-item>
+		 		<ion-label color="primary" stacked>A quoi ressemble votre logement ?</ion-label>
+        		<ion-select name="housType" placeholder="Sélectionner le type de logement" formControlName="housingsStyle">
+		          <ion-option>Appartement</ion-option>
+		          <ion-option>Maison</ion-option>
+		        </ion-select>
+		    </ion-item>
+	        <div>
+		        <ng-container *ngFor="let validation of validation_messages.housings">
+		          <div [ngStyle]="{'color': 'red'}" *ngIf="step1Form.get('housings').hasError(validation.type) && (step1Form.get('housings').dirty || step1Form.get('housings').touched)">
+		            {{ validation.message }}
+		          </div>
+		        </ng-container>
+		    </div>
+	 		<ion-item>
+		 		<ion-label color="primary" stacked>Que vont réserver les voyageurs ?</ion-label>
+        		<ion-select name="housings" placeholder="Sélectionner le type de logement" formControlName="typehousings">
+		          <ion-option>Logement entier</ion-option>
+		          <ion-option>Chambre privée</ion-option>
+		        </ion-select>
+		    </ion-item>
+	        <div>
+		        <ng-container *ngFor="let validation of validation_messages.typehousings">
+		          <div [ngStyle]="{'color': 'red'}" *ngIf="step1Form.get('typehousings').hasError(validation.type) && (step1Form.get('typehousings').dirty || step1Form.get('typehousings').touched)">
+		            {{ validation.message }}
+		          </div>
+		        </ng-container>
+		    </div>
+	 	
+    		<ion-item>
+        		<ion-label color="primary" stacked>Combien de voyageur pouvez-vous accueillir ?</ion-label>
+		        <ion-select name="travelerNumber" placeholder="Sélectionner un nombre de voyageurs" formControlName="traverlersNb">
+		          <ion-option>1</ion-option>
+		          <ion-option>2</ion-option>
+		          <ion-option>3</ion-option>
+		          <ion-option>4</ion-option>
+		          <ion-option>5</ion-option>
+		          <ion-option>6</ion-option>
+		          <ion-option>7</ion-option>
+		          <ion-option>8</ion-option>
+		        </ion-select>
+  			</ion-item>
+	       	<div>
+		        <ng-container *ngFor="let validation of validation_messages.traverlersNb">
+		          <div [ngStyle]="{'color': 'red'}" *ngIf="step1Form.get('traverlersNb').hasError(validation.type) && (step1Form.get('traverlersNb').dirty || step1Form.get('traverlersNb').touched)">
+		            {{ validation.message }}
+		          </div>
+		        </ng-container>
+		    </div>
+		</ion-list>
+	</form>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<button class="medium" [disabled]="disabled" ion-button full type="submit" (click)="redirectToPicturesUpload()">Continuer</button>
+	</ion-toolbar>
+</ion-footer>

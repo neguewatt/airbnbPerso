@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="pink"> 
+    <ion-title>Rechercher</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row style="display: flex!important; align-content: center!important; align-items: center!important;">
+      <ion-col col-10>
+        <ion-searchbar placeholder="Ville" (ionInput)="getLodgingsSearch($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2><button ion-button icon-only (click)="openModal()" ><ion-icon name="add-circle"></ion-icon></button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngFor="let lodging of lodgings">
+    <img src={{lodging.images}} />
+    <ion-card-content>
+      <ion-card-title>
+        {{lodging.city}}
+      </ion-card-title>
+      <br>
+      <p>
+        {{lodging.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

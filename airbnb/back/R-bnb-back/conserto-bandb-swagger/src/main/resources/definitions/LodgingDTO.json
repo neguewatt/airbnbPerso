@@ -1,0 +1,44 @@
+{
+  "allOf": [
+    {
+      "$ref": "./BAndBDTO.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "title",
+        "description"
+      ],
+      "properties": {
+        "dtoType": {
+          "type": "string",
+          "default": "LodgingDTO"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "mainPicture":{
+        	"$ref": "./PictureDTO.json"
+        },    
+        "pictures":{
+	      	"type": "array",
+	      	"items": {
+	        "$ref": "./PictureDTO.json"
+	      }
+	    },    
+        "bedding":{
+	      	"type": "array",
+	      	"items": {
+	        "$ref": "./BeddingDTO.json"
+	      }
+	    },
+        "address": {
+          "$ref": "./AddressDTO.json"
+        }
+      }
+    }
+  ]
+}

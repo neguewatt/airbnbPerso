@@ -1,0 +1,147 @@
+<!--
+  Generated template for the HousingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>Nouveau Logement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="grid-basic-page">
+  <ion-item-divider color="pink">Devenez hôte pour Conserto</ion-item-divider><br>
+  <!-- <ion-item>  -->
+    <p class="textColor">Avant de commencer étape par étape la création de votre logement, Veuillez donner un titre et une description partiel de votre logement. </p> 
+ <!--  </ion-item> -->
+  <form [formGroup]="housingForm" >
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Titre</ion-label>
+        <ion-input type="text" id="title" name="title" placeholder="T2 Chartrons" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Description</ion-label>
+        <ion-input type="text" id="description" name="description" placeholder="Jolie T2 comprenant ... " formControlName="description"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button class="medium" [disabled]="disabled" ion-button full type="submit" (click)="redirectToPicturesUpload()">Commencer</button>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+<!-- <ion-content padding>
+  <form [formGroup]="housingForm" >
+    <ion-list>
+      <ion-item-divider color="dark">Informations Logement</ion-item-divider>
+      <ion-item>
+        <ion-label color="primary" stacked>Titre</ion-label>
+        <ion-input type="text" id="title" name="title" placeholder="T2 Chartrons" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Description</ion-label>
+        <ion-input type="text" id="description" name="description" placeholder="Jolie T2 comprenant ... " formControlName="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Rue *</ion-label>
+        <ion-input type="text" name="street" placeholder="N°, rue" formControlName="street"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.street">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('street').hasError(validation.type) && (housingForm.get('street').dirty || housingForm.get('street').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="primary" stacked>Code postal *</ion-label>
+        <ion-input type="text" name="postalCode" placeholder="33000" formControlName="postalCode"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.postalCode">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('postalCode').hasError(validation.type) && (housingForm.get('postalCode').dirty || housingForm.get('postalCode').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="primary" stacked>Ville *</ion-label>
+        <ion-input type="text" name="city" placeholder="Bordeaux" formControlName="city"></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.city">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('city').hasError(validation.type) && (housingForm.get('city').dirty || housingForm.get('city').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label color="primary" stacked>Nombre de couchage</ion-label>
+        <ion-select name="travelerNumber" placeholder="Sélectionner un nombre de voyageurs" formControlName="traverlersNb">
+          <ion-option>1</ion-option>
+          <ion-option>2</ion-option>
+          <ion-option>3</ion-option>
+          <ion-option>4</ion-option>
+          <ion-option>5</ion-option>
+          <ion-option>6</ion-option>
+          <ion-option>7</ion-option>
+          <ion-option>8</ion-option>
+        </ion-select>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.traverlersNb">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('traverlersNb').hasError(validation.type) && (housingForm.get('traverlersNb').dirty || housingForm.get('traverlersNb').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Type du couchage</ion-label>
+        <ion-select multiple='true' name="bedding" placeholder="Sélectionner un Type de couchage" formControlName="beddingType">
+          <ion-option>Simple</ion-option>
+          <ion-option>Double</ion-option>
+          <ion-option>Enfant</ion-option>
+        </ion-select>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.beddingType">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('beddingType').hasError(validation.type) && (housingForm.get('beddingType').dirty || housingForm.get('beddingType').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Date début disponibilité *</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD/MM/YYYY" placeholder="DD/MM/YYYY" formControlName="startDate"></ion-datetime>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.startDate">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('startDate').hasError(validation.type) && (housingForm.get('startDate').dirty || housingForm.get('startDate').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+      
+      <ion-item>
+        <ion-label color="primary" stacked>Date fin disponibilité *</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD/MM/YYYY" placeholder="DD/MM/YYYY" formControlName="endDate"></ion-datetime>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.endDate">
+          <div [ngStyle]="{'color': 'red'}" *ngIf="housingForm.get('endDate').hasError(validation.type) && (housingForm.get('endDate').dirty || housingForm.get('endDate').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+    <button [disabled]="disabled" ion-button full type="submit" (click)="redirectToPicturesUpload()">Passer au chargement des photos</button>
+  </form>
+</ion-content> -->

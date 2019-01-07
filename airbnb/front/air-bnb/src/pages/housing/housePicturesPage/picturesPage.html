@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>Ajouter des photos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="getPictures(1)">Prendre une photo</button>
+  <button ion-button (click)="getPictures(0)">Choisir un fichier</button>
+  
+  <ion-slides>
+    <ion-slide *ngFor="let picture of data.value.pictures">
+      <img *ngIf="picture" class="img-responsive" [src]="picture"/>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full type="submit" (click)="uploadData()">Enregistrer</button>
+  </ion-toolbar>
+</ion-footer>
+
+

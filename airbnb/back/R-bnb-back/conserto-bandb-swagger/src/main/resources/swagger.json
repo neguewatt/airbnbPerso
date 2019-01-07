@@ -1,0 +1,87 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Conserto B&B"
+  },
+  "host": "localhost:8443",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/lodgings": {
+      "$ref": "./paths/lodgings.json"
+    },
+    "/lodgings/{id}": {
+      "$ref": "./paths/lodging.json"
+    },
+    "/lodgings/{address}": {
+      "$ref": "./paths/lodgings-address.json"
+    },
+    "/lodgings/users/{userId}": {
+      "$ref": "./paths/lodgings-users-userId.json"
+    },
+    "/users": {
+      "$ref": "./paths/users.json"
+    },    
+    "/users/{id}": {
+      "$ref": "./paths/user-id.json"
+    }
+  },
+  "securityDefinitions": {
+    "auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://airbnb:Consert0-BNB@localhost:8443/oauth/token",
+      "flow": "implicit",
+      "scopes": {
+        "write": "modify",
+        "read": "read"
+      }
+    }
+  },
+  "definitions": {
+    "AddressDTO": {
+      "$ref": "./definitions/AddressDTO.json"
+    },
+    "AddressParameterDTO": {
+      "$ref": "./definitions/AddressParameterDTO.json"
+    },
+    "BAndBDTO": {
+      "$ref": "./definitions/BAndBDTO.json"
+    },
+    "LodgingDTO": {
+      "$ref": "./definitions/LodgingDTO.json"
+    },
+    "LodgingParameterDTO": {
+      "$ref": "./definitions/LodgingParameterDTO.json"
+    },
+    "PageDTO": {
+      "$ref": "./definitions/PageDTO.json"
+    },
+    "PageableDTO": {
+      "$ref": "./definitions/PageableDTO.json"
+    },
+    "UserDTO": {
+      "$ref": "./definitions/UserDTO.json"
+    },
+    "UserParameterDTO": {
+      "$ref": "./definitions/UserParameterDTO.json"
+    },"PictureDTO": {
+      "$ref": "./definitions/PictureDTO.json"
+    },
+    "PictureParameterDTO": {
+      "$ref": "./definitions/PictureParameterDTO.json"
+    },"BeddingDTO": {
+      "$ref": "./definitions/BeddingDTO.json"
+    },
+    "BeddingParameterDTO": {
+      "$ref": "./definitions/BeddingParameterDTO.json"
+    },"BeddingSizeDTO": {
+      "$ref": "./definitions/BeddingSizeDTO.json"
+    },
+    "BeddingSizeParameterDTO": {
+      "$ref": "./definitions/BeddingSizeParameterDTO.json"
+    }
+  }
+}

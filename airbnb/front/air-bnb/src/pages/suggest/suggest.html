@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>
+      Air B&B Conserto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="grid-basic-page">
+	
+	<ion-item-divider color="pink">Devenez hôte pour Conserto</ion-item-divider><br>
+	<ion-item> 
+		<ion-label color="pink">En tant que Hôte, <br> que souhaitez vous faire ? </ion-label> 
+	</ion-item><br>  
+		<button ion-button full (click)="onAddHousing()">Ajouter un logement</button><br>
+		<button ion-button full (click)="onUpdateHousing()">Modifier un logement</button><br>
+		<button ion-button full (click)="onDeleteHousing()">Supprimer un logement</button>
+</ion-content>
+

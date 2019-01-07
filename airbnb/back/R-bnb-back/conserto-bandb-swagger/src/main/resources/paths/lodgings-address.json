@@ -1,0 +1,33 @@
+{
+  "get": {
+    "tags": [
+      "lodging",
+      "address"
+    ],
+    "summary": "Get lodgings given an address",
+    "operationId": "getAllLodgingsByAddress",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "address",
+        "description": "The address",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "../definitions/LodgingDTO.json"
+          }
+        }
+      }
+    }
+  }
+}

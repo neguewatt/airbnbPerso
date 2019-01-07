@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "completeAddress":{
+    	"type":"string"
+    }
+  }
+}

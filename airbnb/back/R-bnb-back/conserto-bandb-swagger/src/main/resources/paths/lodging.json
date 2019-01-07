@@ -1,0 +1,24 @@
+{
+  "delete": {
+    "tags": [
+      "lodging"
+    ],
+    "summary": "Delete a lodging",
+    "operationId": "deleteLodging",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "description": "The ID",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+      }
+    ],
+    "responses": {
+      "204": {
+        "description": "OK"
+      }
+    }
+  }
+}

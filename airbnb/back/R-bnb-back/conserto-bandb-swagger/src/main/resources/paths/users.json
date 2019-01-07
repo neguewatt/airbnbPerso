@@ -1,0 +1,87 @@
+{
+  "get": {
+    "tags": [
+      "user"
+    ],
+    "summary": "Get all users",
+    "operationId": "getAllUsers",
+    "produces": [
+      "application/json"
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "../definitions/UserDTO.json"
+          }
+        }
+      }
+    }
+  },
+  "post": {
+    "tags": [
+      "user"
+    ],
+    "summary": "Create a new user",
+    "operationId": "createUser",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "description": "User that needs to be created",
+        "required": true,
+        "schema": {
+          "$ref": "../definitions/UserParameterDTO.json"
+        }
+      }
+    ],
+    "responses": {
+      "201": {
+        "description": "Created",
+        "schema": {
+          "$ref": "../definitions/UserDTO.json"
+        }
+      }
+    }
+  },
+  "put": {
+    "tags": [
+      "user"
+    ],
+    "summary": "Update an existing user",
+    "operationId": "updateUser",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "description": "User that needs to be updated",
+        "required": true,
+        "schema": {
+          "$ref": "../definitions/UserDTO.json"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "$ref": "../definitions/UserDTO.json"
+        }
+      }
+    }
+  }
+}

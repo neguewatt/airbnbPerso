@@ -1,0 +1,22 @@
+{
+  "allOf": [
+    {
+      "$ref": "./BAndBDTO.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "path"
+      ],
+      "properties": {
+        "dtoType": {
+          "type": "string",
+          "default": "PictureDTO"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

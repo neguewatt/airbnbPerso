@@ -1,0 +1,16 @@
+{
+  "allOf": [
+    {
+      "$ref": "./BAndBDTO.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "dtoType": {
+          "type": "string",
+          "default": "BookingDTO"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "allOf": [
+    {
+      "$ref": "./BAndBDTO.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "dtoType": {
+          "type": "string",
+          "default": "AddressDTO"
+        },
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "completeAddress":{
+        	"type":"string"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

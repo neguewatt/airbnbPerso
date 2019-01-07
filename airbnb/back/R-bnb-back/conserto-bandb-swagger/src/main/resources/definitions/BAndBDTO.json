@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "discriminator": "dtoType",
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "dtoType"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dtoType": {
+      "type": "string"
+    }
+  }
+}

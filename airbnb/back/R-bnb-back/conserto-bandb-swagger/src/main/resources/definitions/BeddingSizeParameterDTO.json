@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "street": {
+      "type": "string"
+    },
+    "beddingSize": {
+          "type": "string",
+          "enum" : ["SINGLE" ,"DOUBLE" ]
+      }
+  }
+}

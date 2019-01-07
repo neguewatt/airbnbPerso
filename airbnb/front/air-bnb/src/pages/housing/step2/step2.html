@@ -1,0 +1,150 @@
+<!--
+  Generated template for the Step2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="pink">
+    <ion-title>Etape 2</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="grid-basic-page">
+	
+	<ion-item-divider color="pink">Devenez hôte pour Conserto</ion-item-divider><br>
+	<ion-item> 
+		<ion-label color="pink">Nous allons vous aider <br> à publier  votre annonce. </ion-label> 
+	</ion-item><br>
+	<form [formGroup]="step2Form">
+		<ion-list>
+			<ion-item>
+        		<ion-label color="primary" stacked>Combien de chambre pour les voyageurs avez-vous ?</ion-label>
+		        <ion-select (ionChange)="onSelectChangeRoom($event)" name="RoomNbr" placeholder="Sélectionner un nombre de pièces" formControlName="RoomsNbr">
+	        	  <ion-option *ngFor="let numberOfRoom of numberOfRooms; let i = index" (ionSelect)="myIndex = i">{{numberOfRoom}}</ion-option>
+		        </ion-select>
+  			</ion-item>
+	       	<div>
+		        <ng-container *ngFor="let validation of validation_messages.RoomsNbr">
+		          <div [ngStyle]="{'color': 'red'}" *ngIf="step2Form.get('RoomsNbr').hasError(validation.type) && (step2Form.get('RoomsNbr').dirty || step2Form.get('RoomsNbr').touched)">
+		            {{ validation.message }}
+		          </div>
+		        </ng-container>
+		    </div>
+
+		    <ion-item>
+		    	<ion-grid>
+				  <ion-row>
+				    <ion-col class="myText">
+				    	Espace communs <br> 
+				    	{{numberOfbed}} <br>
+				    	{{myBedingType}}
+				    </ion-col>
+				    <button *ngIf="!show" class="myButton" ion-button outline color="pink" (click)="onClickShowBedding()">Ajouter des lits</button>
+				    <button *ngIf="show" class="myButton" ion-button outline color="pink" (click)="onClickCloseBedding()">Valider</button>
+				  </ion-row>
+				</ion-grid>
+	    		<ion-item *ngIf="show">
+			        <ion-label color="primary" stacked>Type du couchage</ion-label>
+			        <ion-select multiple='true' name="bedding" placeholder="Sélectionner un Type de couchage" formControlName="beddingType">
+			          <ion-option>Simple</ion-option>
+			          <ion-option>Double</ion-option>
+			          <ion-option>Canapé</ion-option>
+			          <ion-option>Canapé lit</ion-option>
+			          <ion-option>Lit superposé</ion-option>
+			          <ion-option>Lit enfant</ion-option>
+			        </ion-select>
+				</ion-item>
+				<div>
+					<ng-container *ngFor="let validation of validation_messages.beddingType">
+					  <div [ngStyle]="{'color': 'red'}" *ngIf="step2Form.get('beddingType').hasError(validation.type) && (step2Form.get('beddingType').dirty || step2Form.get('beddingType').touched)">
+					    {{ validation.message }}
+					  </div>
+					</ng-container>
+				</div>
+		    </ion-item>
+
+		    <div *ngIf="myIndex != 0">
+		    	<div ion-item *ngFor="let indexOfRoom of IndexOfRooms">
+		    		<ion-grid>
+			  			<ion-row>
+						    <ion-col class="myText">
+						    {{indexOfRoom}}<br> 
+					    	{{numberOfbed}} <br>
+					    	{{myBedingType}}
+					    	</ion-col>
+						    <button *ngIf="!show" class="myButton" ion-button outline color="pink" (click)="onClickShowBedding()">Ajouter des lits</button>
+						    <button *ngIf="show" class="myButton" ion-button outline color="pink" (click)="onClickCloseBedding()">Valider</button>
+					  	</ion-row>
+					</ion-grid>
+					<ion-item *ngIf="show">
+				        <ion-label color="primary" stacked>Type du couchage</ion-label>
+				        <ion-select multiple='true' name="bedding" placeholder="Sélectionner un Type de couchage" formControlName="beddingType">
+				          <ion-option>Simple</ion-option>
+				          <ion-option>Double</ion-option>
+				          <ion-option>Canapé</ion-option>
+				          <ion-option>Canapé lit</ion-option>
+				          <ion-option>Lit superposé</ion-option>
+				          <ion-option>Lit enfant</ion-option>
+				        </ion-select>
+					</ion-item>
+					<div>
+						<ng-container *ngFor="let validation of validation_messages.beddingType">
+						  <div [ngStyle]="{'color': 'red'}" *ngIf="step2Form.get('beddingType').hasError(validation.type) && (step2Form.get('beddingType').dirty || step2Form.get('beddingType').touched)">
+						    {{ validation.message }}
+						  </div>
+						</ng-container>
+					</div>
+			    </div>
+		    </div>
+
+			<ion-item>
+		        <ion-label color="primary" stacked>Nombre total de couchage disponible</ion-label>
+		        <ion-select name="sleepNumber" placeholder="Sélectionner un nombre de couchage" formControlName="sleepNb">
+		          <ion-option>1</ion-option>
+		          <ion-option>2</ion-option>
+		          <ion-option>3</ion-option>
+		          <ion-option>4</ion-option>
+		          <ion-option>5</ion-option>
+		          <ion-option>6</ion-option>
+		          <ion-option>7</ion-option>
+		          <ion-option>+8</ion-option>
+		        </ion-select>
+	    	</ion-item>
+	    	<div>
+		        <ng-container *ngFor="let validation of validation_messages.sleepNb">
+		          <div [ngStyle]="{'color': 'red'}" *ngIf="step2Form.get('sleepNb').hasError(validation.type) && (step2Form.get('sleepNb').dirty || step2Form.get('sleepNb').touched)">
+		            {{ validation.message }}
+		          </div>
+		        </ng-container>
+	    	</div>
+	 	
+    		<ion-item>
+		        <ion-label color="primary" stacked>Type du couchage</ion-label>
+		        <ion-select multiple='true' name="bedding" placeholder="Sélectionner un Type de couchage" formControlName="beddingType">
+		          <ion-option>Simple</ion-option>
+		          <ion-option>Double</ion-option>
+		          <ion-option>Canapé</ion-option>
+		          <ion-option>Canapé lit</ion-option>
+		          <ion-option>Lit superposé</ion-option>
+		          <ion-option>Lit enfant</ion-option>
+		        </ion-select>
+			</ion-item>
+			<div>
+				<ng-container *ngFor="let validation of validation_messages.beddingType">
+				  <div [ngStyle]="{'color': 'red'}" *ngIf="step2Form.get('beddingType').hasError(validation.type) && (step2Form.get('beddingType').dirty || step2Form.get('beddingType').touched)">
+				    {{ validation.message }}
+				  </div>
+				</ng-container>
+			</div>
+		</ion-list>
+	</form>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<button class="medium" [disabled]="disabled" ion-button full type="submit" (click)="redirectToPicturesUpload()">Continuer</button>
+	</ion-toolbar>
+</ion-footer>

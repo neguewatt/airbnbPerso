@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "emailAddress",
+    "password",
+    "firstName",
+    "lastName"
+  ],
+  "properties": {
+    "emailAddress": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date"
+    },
+    "address": {
+      "$ref": "./AddressParameterDTO.json"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "get": {
+    "tags": [
+      "lodging"
+    ],
+    "summary": "Get all lodgings",
+    "operationId": "getAllLodgings",
+    "produces": [
+      "application/json"
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "../definitions/LodgingDTO.json"
+          }
+        }
+      }
+    }
+  },
+  "put": {
+    "tags": [
+      "user"
+    ],
+    "summary": "Update an existing lodging",
+    "operationId": "updateLodging",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "body",
+        "name": "body",
+        "description": "Lodging that needs to be updated",
+        "required": true,
+        "schema": {
+          "$ref": "../definitions/LodgingDTO.json"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "$ref": "../definitions/LodgingDTO.json"
+        }
+      }
+    }
+  }
+}

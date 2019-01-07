@@ -1,0 +1,30 @@
+{
+  "get": {
+    "tags": [
+      "user"
+    ],
+    "summary": "Get user by id",
+    "operationId": "getUserId",
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "path",
+        "name": "id",
+        "description": "The ID of the owner",
+        "required": true,
+        "type": "integer",
+        "format": "int64"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+            "$ref": "../definitions/UserDTO.json"
+        }
+      }
+    }
+  }
+}

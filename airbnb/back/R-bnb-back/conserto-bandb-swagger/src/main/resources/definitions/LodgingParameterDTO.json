@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "title",
+    "description"
+  ],
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mainPicture":{
+    	"$ref": "./PictureParameterDTO.json"
+    },
+    "pictures":{
+      "type": "array",
+      "items": {
+        "$ref": "./PictureParameterDTO.json"
+      }
+    },
+    "beddings":{
+      "type": "array",
+      "items": {
+        "$ref": "./BeddingParameterDTO.json"
+      }
+    },
+    "address": {
+      "$ref": "./AddressParameterDTO.json"
+    }
+  }
+}

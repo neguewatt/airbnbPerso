@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item >
+      <ion-label color="pink">Prénom:</ion-label>
+      <div item-content>
+        {{ user?.firstName }}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Nom de famille:</ion-label>
+       <div item-content>
+          {{ user?.lastName}}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Email:</ion-label>
+       <div item-content>
+          {{user?.emailAddress}}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Date de naissance:</ion-label>
+      <div item-content>
+          {{user?.birthday | date:'dd MM yyyy'}}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Adresse:</ion-label>
+       <div item-content>
+          {{ user?.address.street }}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Code postal:</ion-label>
+      <div item-content>
+          {{ user?.address.postalCode}}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Ville:</ion-label>
+      <div item-content>
+          {{ user?.address.city}}
+      </div>
+    </ion-item>
+
+    <ion-item >
+      <ion-label color="pink">Région:</ion-label>
+       <div item-content>
+          {{ user?.address.region}}
+      </div>
+    </ion-item>
+
+  </ion-list>
+  <button ion-button block outline color="pink" (click)="onEditProfile()"> Editer votre profil</button>
+
+</ion-content>

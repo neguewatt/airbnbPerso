@@ -1,0 +1,37 @@
+{
+  "allOf": [
+    {
+      "$ref": "./BAndBDTO.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "emailAddress",
+        "firstName",
+        "lastName"
+      ],
+      "properties": {
+        "dtoType": {
+          "type": "string",
+          "default": "UserDTO"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "birthday": {
+          "type": "string",
+          "format": "date"
+        },
+         "address": {
+          "$ref": "./AddressDTO.json"
+        }
+      }
+    }
+  ]
+}
